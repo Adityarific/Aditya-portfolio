@@ -59,3 +59,24 @@ ul li a:hover{
 ul li {
   margin-left: 20px;      
 }
+
+
+
+
+
+.map {
+    margin-top: 50px;
+    width: 500px;
+    /* border: solid white 1px; */
+    display: flex;          
+    justify-content: center;
+    align-items: center;
+}
+
+.map iframe {
+    width: 490px;
+    height: 200px;
+    border-radius: 15px;
+    border: none;           
+}
+
