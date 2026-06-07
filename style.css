@@ -12,3 +12,50 @@ body {
     justify-content: center; 
    
 }
+
+
+.main {
+    width: 600px;
+    min-height: 100vh;
+    /* border: solid white 1px;  */
+    display: flex;           
+    flex-direction: column;
+    justify-content: flex-start; /* Starts content from the top */
+    align-items: center;        /* Fixed: Centers the 500px children inside the 600px main */
+    padding-bottom: 50px;       /* Added: Prevents the bottom element from hugging the screen edge */
+}
+
+.nav{
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    color: azure;
+    justify-content: space-between;
+    /* border: solid white 1px;  */
+
+}
+
+.name{
+  
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 24px;       
+    font-weight: 700;      
+    color: #FAFAFA;       
+}
+.nav ul{
+    display: flex;
+    list-style-type: none;
+    
+}
+ul li a{
+  color: #ffffff97;         /* Changes text color from blue to bright white */
+  text-decoration: none;  /* Removes the underlines */
+  cursor: pointer;        /* Ensures the hand icon shows on hover */
+  transition: color 0.15s; /* Smoothly transitions the hover effect */
+}
+ul li a:hover{
+    color: #ffffff;
+}
+ul li {
+  margin-left: 20px;      
+}
