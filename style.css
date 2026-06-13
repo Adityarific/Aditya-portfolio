@@ -120,35 +120,106 @@ ul li a:hover{
     margin: 0px 0px 24px;
     /* border: solid white 1px; */
 }
-.profile{
-    width: 70px;
-    height: 70px;
-    margin-right: 24px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    margin-top: 5px;
-    /* border: #FAFAFA solid 1px; */
-    
-}
 .profile-circle{
     border: #555555 solid 3.7px;
-    width: 70px;
-    height: 70px;
+    width: 66px;
+    height: 68px;
     overflow: hidden;
     border-radius: 50%;
     display: flex;
     justify-content:center;
-    align-items: center;
-    padding: 6px;              
-    box-sizing: border-box; 
+    align-items: center;              
+    box-sizing: border-box;
+    position: relative; 
 }
-img{
-    width: 70px;
-    height: 85px;
-    margin-top: 30px;
-    object-fit: cover;
+.circle-container {
+  height: 70px;
+  width: 90px;
 }
+.profile {
+  width: 70px;
+  height: 70px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+
+.circle-svg {
+  position: absolute; /* Pulls it out of normal layout flow to layer on top */
+  margin-right:2px ;
+  margin-left: -10.3px;
+  width: 81px;
+  height: 70px;
+  transform: rotate(-90deg); 
+  z-index: 2;         /* Positions line above the image */
+  pointer-events: none; /* Prevents cursor interference */
+}
+
+.circle {
+  fill: none;
+  stroke: rgb(0, 255, 0);
+  stroke-width:5.6;
+  
+  /* Circumference: 2 * PI * 47.5 = ~298 */
+  stroke-dasharray: 298; 
+  stroke-dashoffset: 300; /* Pushed out completely to remove rest dots */
+  
+}
+
+/* Hovering on the profile container fires the animation */
+.profile:hover .circle  {
+  animation: completeCircle 1.2s linear forwards; 
+}
+
+
+
+/* Keyframes adjusted to match the new circumference */
+@keyframes completeCircle {
+  0% {
+    stroke-dashoffset: 298; 
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0; 
+    opacity: 0.7;
+  }
+  90% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dashoffset: 0; 
+    opacity: 0;
+  }
+}
+
+img {
+  position: absolute; /* Sits beneath the animation track */
+  z-index: 1;
+  margin-top: 10px;
+  margin-right: px;
+  width: 57px;
+  height: 85px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .intro-box{
     height: 80px;
     margin-top: 10px;
@@ -201,10 +272,22 @@ img{
 
 .intro:hover .msg {
     /* 4. Slide up the entire container on hover */
-   transform: translateY(-25px); /* Matches the exact height of the first line */
+   transform: translateY(-23px); /* Matches the exact height of the first line */
+}
+.msg a{
+    font-size: 17.5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ffffff97;        
+    text-decoration: none;  
+    cursor: pointer;        
+    transition: color 0.15s;
+}
+.msg a:hover{
+    color: #ffffff;
 }
 /* <-----------------------------------New Blocks-----------------------------> */
-.desc {       
+.desc {     
+    line-height: 1.5em;  
    padding: 0px 6px;
    
 }
@@ -215,3 +298,21 @@ img{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
+mark {
+  background-color: rgb(0, 255, 0); /* Custom bright green highlight */
+  color: black;                     /* Text color inside the highlight */
+  padding: 0 4px;                  /* Adds breathing room on the sides */
+  
+}
+
+
+.animated-highlight {
+  background-image: linear-gradient(rgb(0, 255, 0), rgb(0, 255, 0));
+  background-size: 0% 100%; /* Hidden at rest */
+  background-repeat: no-repeat;
+  transition: background-size 1s ease;
+  padding: 0 4px;
+}
+
+/* Expands the background to 100% on hover */
+

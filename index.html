@@ -40,12 +40,25 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114312.51528009187!2d80.25598103996941!3d26.44715007162656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4770b127c46f%3A0x1778302a9fbe7b41!2sKanpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1780812197987!5m2!1sen!2sin" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" ></iframe>
         </div>
 <!-- <-----------------------INTRO------------------------->
+    <div class="user-card">   
         <div class="info">
             <div class="profile">
                 <div class="profile-circle">
-                    <img src="images/Among-Us.png" alt="Profile Image">
+                    <div class="circle-container">
+                    
+                        <!-- The SVG handles only the loading line animation -->
+                        <svg class="circle-svg" viewBox="0 0 100 100">
+                            <circle class="circle" cx="50" cy="50" r="40" />
+                        </svg>
+                        
+                        <!-- The image sits layered inside the container, outside the SVG -->
+                        <img src="images/Among-Us.png" alt="Profile Image" class="profile-img">
+                        
+                    </div>
                 </div>
             </div>
+
+
             <div class="intro-box">
                 <div class="hello">Hey, I'm Aditya (ah·deet·yuh)</div>
                 <div class="intro">
@@ -54,21 +67,27 @@
                     </div>
                     <div class="msg">
                         <p>Available for work</p>
-                        <p>reach out</p>
+                        <a href="#contact">reach out<i class="fa-regular fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
-        </div>  
-
-<!-- <-----------------------Blocks------------------------->
+        </div> 
         <div class="desc">
-            <p>I'm a creative software developer . I specialize in UI design and crafting engaging user experiences with great attention to detail.    </p>
+            <p>I'm a <mark>creative software developer</mark> . I specialize in <mark>UI design</mark> and crafting engaging user experiences<mark >with great attention to detail.    </mark>
         </div>
-        <div class="tech"></div>
-        <div class="tech"></div>
+    </div>
+<!-- <-----------------------Blocks------------------------->
+ 
+        
+        
+        <p>Hover over this <span class="animated-highlight">cool text</span> to see it light up.</p>
+
+
+        
    
 
   </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <script src="script.js" defer></script>
 </body>
 </html>
