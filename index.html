@@ -42,21 +42,18 @@
 <!-- <-----------------------INTRO------------------------->
     <div class="user-card">   
         <div class="info">
-            <div class="profile">
-                <div class="profile-circle">
-                    <div class="circle-container">
-                    
-                        <!-- The SVG handles only the loading line animation -->
-                        <svg class="circle-svg" viewBox="0 0 100 100">
-                            <circle class="circle" cx="50" cy="50" r="40" />
-                        </svg>
-                        
-                        <!-- The image sits layered inside the container, outside the SVG -->
+                <div class="profile">
+    <!-- 1. The green loading line sits completely on top -->
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle" cx="50" cy="50" r="40" />
+                    </svg>
+    
+    <!-- 2. The grey border container only holds your clipped image -->
+                    <div class="grey-circle">
                         <img src="images/Among-Us.png" alt="Profile Image" class="profile-img">
-                        
                     </div>
                 </div>
-            </div>
+
 
 
             <div class="intro-box">
@@ -73,19 +70,15 @@
             </div>
         </div> 
         <div class="desc">
-            <p>I'm a <mark>creative software developer</mark> . I specialize in <mark>UI design</mark> and crafting engaging user experiences<mark >with great attention to detail.    </mark>
-        </div>
+    <p>
+        I'm a <span class="animated-highlight">creative software developer</span>. 
+        I specialize in <span class="animated-highlight">UI design</span> and crafting 
+        engaging user experiences <span class="animated-highlight">with great attention to detail.</span>
+    </p>
+</div>
+
     </div>
-<!-- <-----------------------Blocks------------------------->
- 
-        
-        
-        <p>Hover over this <span class="animated-highlight">cool text</span> to see it light up.</p>
-
-
-        
-   
-
+<!-- <-----------------------Blocks------------------------->   
   </div>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <script src="script.js" defer></script>

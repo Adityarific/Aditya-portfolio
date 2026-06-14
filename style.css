@@ -45,7 +45,6 @@ body {
     /* border: solid white 1px;  */
 }
 /* <-----------------------NAVBAR-------------------------> */
-
 .nav{
    width: 528px;
     height:32px;
@@ -90,7 +89,6 @@ ul li a{
 ul li a:hover{
     color: #ffffff;
 }
-
 /* <----------------------------------------------MAP-----------------------> */
 .map {
     
@@ -108,9 +106,6 @@ ul li a:hover{
     border: none;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 99.5%);     
 }
-
-
-
 /* <------------------------INTRO--------------------------------------> */
 .info {
     height: 70px; 
@@ -120,22 +115,6 @@ ul li a:hover{
     margin: 0px 0px 24px;
     /* border: solid white 1px; */
 }
-.profile-circle{
-    border: #555555 solid 3.7px;
-    width: 66px;
-    height: 68px;
-    overflow: hidden;
-    border-radius: 50%;
-    display: flex;
-    justify-content:center;
-    align-items: center;              
-    box-sizing: border-box;
-    position: relative; 
-}
-.circle-container {
-  height: 70px;
-  width: 90px;
-}
 .profile {
   width: 70px;
   height: 70px;
@@ -144,82 +123,71 @@ ul li a:hover{
   justify-content: center;
   align-items: center;
   margin-top: 5px;
+  position: relative; /* Anchor point for the absolute SVG layer */
 }
 
+.grey-circle {
+  border: #555555 solid 3.7px;
+  width: 66px;
+  height: 66px; /* Match width for a true perfect circle */
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;              
+  box-sizing: border-box;
+  z-index: 1; /* Sits safely underneath the green line */
+}
 
 .circle-svg {
-  position: absolute; /* Pulls it out of normal layout flow to layer on top */
-  margin-right:2px ;
-  margin-left: -10.3px;
-  width: 81px;
-  height: 70px;
+  position: absolute; 
+  top: -1px;  /* Centers it over the grey box */
+  left: -1px; /* Centers it over the grey box */
+  width: 72px; /* Marginally wider to overlay directly over the border track */
+  height: 72px;
   transform: rotate(-90deg); 
-  z-index: 2;         /* Positions line above the image */
-  pointer-events: none; /* Prevents cursor interference */
+  z-index: 2; /* Pushes line directly above the grey border */
+  pointer-events: none; 
 }
 
 .circle {
   fill: none;
   stroke: rgb(0, 255, 0);
-  stroke-width:5.6;
-  
-  /* Circumference: 2 * PI * 47.5 = ~298 */
-  stroke-dasharray: 298; 
-  stroke-dashoffset: 300; /* Pushed out completely to remove rest dots */
-  
+  stroke-width: 5.5; /* Slightly thinner to align with your 3.7px border */
+  stroke-dasharray: 252; /* Correct math formula: 2 * PI * r(40) = ~251.3 */
+  stroke-dashoffset: 252; 
 }
 
-/* Hovering on the profile container fires the animation */
-.profile:hover .circle  {
-  animation: completeCircle 1.2s linear forwards; 
+/* Hover triggers loading sequence */
+.profile:hover .circle {
+  animation: completeCircle 1.35s linear forwards; 
 }
 
-
-
-/* Keyframes adjusted to match the new circumference */
 @keyframes completeCircle {
   0% {
-    stroke-dashoffset: 298; 
+    stroke-dashoffset: 252; 
     opacity: 1;
   }
-  80% {
-    stroke-dashoffset: 0; 
-    opacity: 0.7;
-  }
-  90% {
+80%{
+    stroke-dashoffset: 30;
+    opacity: 0.8;
+}
+95%{
     stroke-dashoffset: 0;
-    opacity: 0.3;
+    opacity: 0.5;
   }
   100% {
     stroke-dashoffset: 0; 
-    opacity: 0;
+    opacity: 0; /* Keeps green active on complete visibility */
   }
 }
 
 img {
-  position: absolute; /* Sits beneath the animation track */
-  z-index: 1;
-  margin-top: 10px;
-  margin-right: px;
-  width: 57px;
-  height: 85px;
   object-fit: cover;
+  height: 90px;
+  margin-top: 35px;
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .intro-box{
     height: 80px;
     margin-top: 10px;
@@ -242,10 +210,10 @@ img {
 .dot-box{
     height: 25px;
     width: 15px;
-    /* border: solid white 1px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: solid white 1px; */
 }
 .dot{
     background: rgb(0, 255, 0);
@@ -254,14 +222,10 @@ img {
     height: 8px;
 }
 .msg {
-    /* 1. Stack the <p> tags into a strict vertical column layout */
     display: flex;
     flex-direction: column;
-    
-
     text-decoration: underline dashed #333;
     text-underline-offset: 4px;
-
     cursor: pointer;
     transition: transform 1.43s ease; 
     margin-left: 3.5px;
@@ -269,10 +233,9 @@ img {
 }
 
 
-
 .intro:hover .msg {
-    /* 4. Slide up the entire container on hover */
-   transform: translateY(-23px); /* Matches the exact height of the first line */
+    
+   transform: translateY(-23px); 
 }
 .msg a{
     font-size: 17.5px;
@@ -287,32 +250,40 @@ img {
 }
 /* <-----------------------------------New Blocks-----------------------------> */
 .desc {     
-    line-height: 1.5em;  
-   padding: 0px 6px;
-   
+    line-height: 1.6em;  
+    padding: 0px 6px;
+    margin-bottom: 40px;
 }
-.desc p{
+
+.desc p {
     width: 100%;        
-    height: 72px; 
     letter-spacing: -0.1px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+    font-size: 17px;
+    color: #ffffff;
+    transition: color 0.5s ease;
 }
-mark {
-  background-color: rgb(0, 255, 0); /* Custom bright green highlight */
-  color: black;                     /* Text color inside the highlight */
-  padding: 0 4px;                  /* Adds breathing room on the sides */
-  
-}
-
 
 .animated-highlight {
-  background-image: linear-gradient(rgb(0, 255, 0), rgb(0, 255, 0));
-  background-size: 0% 100%; /* Hidden at rest */
-  background-repeat: no-repeat;
-  transition: background-size 1s ease;
-  padding: 0 4px;
+    color: #ffffff;
+    padding: 2px 4px;
+    border-radius: 4px; /* Softens the sharp block edges */
+    cursor: pointer;
+    
+    /* Straight solid color using a linear gradient */
+    background-image: linear-gradient(to left ,
+        oklch(0.476 0.114 61.907 / 100% ), 
+        oklch(0.476 0.114 61.907 / 30% )
+    );
+    background-size: 0% 100%; /* Hidden by default */
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    
+    transition: background-size 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* Expands the background to 100% on hover */
-
+.desc p:hover .animated-highlight,.animated-highlight:hover {
+    background-size: 100% 100%;
+}
+.desc p:hover {
+    color: #ffffff61;
+}
