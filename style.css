@@ -124,6 +124,7 @@ ul li a:hover{
   align-items: center;
   margin-top: 5px;
   position: relative; /* Anchor point for the absolute SVG layer */
+  
 }
 
 .grey-circle {
@@ -251,13 +252,13 @@ img {
 /* <-----------------------------------New Blocks-----------------------------> */
 .desc {     
     line-height: 1.6em;  
-    padding: 0px 6px;
-    margin-bottom: 40px;
+    padding: 0px 0px;
 }
 
 .desc p {
     width: 100%;        
-    letter-spacing: -0.1px;
+    letter-spacing: 0.1px;
+    word-spacing: 1px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
     color: #ffffff;
@@ -286,4 +287,69 @@ img {
 }
 .desc p:hover {
     color: #ffffff61;
+}.tech-box {
+    width: 100%; 
+    margin: 24px 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 155px; 
+    gap: 8px; 
 }
+
+.tech {
+    height: 100%;
+    width: 100%;
+    border: solid #fafafa52 0.1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; 
+    padding: 12px 8px;
+    box-sizing: border-box; 
+}
+
+/* Sizing and transition configuration for the font icon */
+.tech-logo {
+    font-size: 25px; /* Sets the icon display height */
+    color: #FAFAFA;  /* Sets default icon color */
+    margin: 0px;
+    display: inline-block;
+    transition: transform 0.5s ease ,color 0.4s ease; 
+}
+
+/* Moves only the icon character upward upon container hover */
+.tech:hover .tech-logo {
+    transform: translateY(-4px);
+    
+}
+
+.tech span {
+    font-size: 12px;
+    color: #FAFAFA;
+}
+.tech:nth-child(1):hover .tech-logo { color: #E34F26; }
+
+/* CSS - Blue */
+.tech:nth-child(2):hover .tech-logo { color: #1572B6; }
+
+/* JavaScript - Yellow */
+.tech:nth-child(3):hover .tech-logo { color: #F7DF1E; }
+
+/* React - Cyan */
+.tech:nth-child(4):hover .tech-logo { color: #61DAFB; }
+
+/* Node.js - Green */
+.tech:nth-child(5):hover .tech-logo { color: #339933; }
+
+/* Python - Dark Blue/Yellow Tint */
+.tech:nth-child(6):hover .tech-logo { color: #3776AB; }
+
+/* TypeScript - Dark Blue */
+.tech:nth-child(7):hover .tech-logo { color: #3178C6; }
+
+
+/* Motion (Framer) - Pink/Purple */
+.tech:nth-child(8):hover .tech-logo { color: #fafafafa; }
