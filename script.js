@@ -12,6 +12,6 @@
 //     }
 //   });
 
-const video = document.getElementById('myVideo');
-  video.playbackRate = 0.5;
-  video.volume = 0.2; 
+// const video = document.getElementById('myVideo');
+//   video.playbackRate = 0.5;
+//   video.volume = 0.2; 
