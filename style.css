@@ -353,3 +353,11 @@ img {
 
 /* Motion (Framer) - Pink/Purple */
 /* .tech:nth-child(8):hover .tech-logo { color: #fafafafa; } */
+
+
+.block{
+    width: 100%;
+    height: 200px;
+    border: solid white 1px;
+    border-radius: 20px;
+}
