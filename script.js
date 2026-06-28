@@ -15,3 +15,22 @@
 // const video = document.getElementById('myVideo');
 //   video.playbackRate = 0.5;
 //   video.volume = 0.2; 
+
+
+    // Select both block elements
+    const blocks = document.querySelectorAll('.block1, .block2');
+
+    blocks.forEach(block => {
+        block.addEventListener('mousemove', (e) => {
+            // Get the bounding boundaries of the specific hovered box
+            const rect = block.getBoundingClientRect();
+            
+            // Calculate mouse position relative to the box's top-left corner
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Pass the coordinates directly into the CSS variables
+            block.style.setProperty('--mouse-x', `${x}px`);
+            block.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });

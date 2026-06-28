@@ -361,15 +361,6 @@ img {
     width: 100%;
     height: 100%;
 }
-.block{
-    width: 100%;
-    height: 200px;
-    border: solid rgba(255, 255, 255, 0.222) 1px;
-    border-radius: 20px;
-    display: flex;
-    gap: 24px;
-    margin: 12px 0px;
-}
 .title{
     width: 100px;
     height: 25px;
@@ -382,9 +373,88 @@ img {
     margin-left: 5px;
     font-size: 13px;
 }
-.block1 , .block2 {
-    width: 50%;
+.projects{
+    width: 100%;
     height: 200px;
-    border: solid white 1px;
     border-radius: 20px;
+    display: flex;
+    gap: 24px;
+    margin: 12px 0px;
+}
+/* Make sure the clickable link fills the box area */
+.block1 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.block1, .block2 {
+    width: 50%;
+    height: 100%;
+    border: solid rgba(255, 255, 255, 0.222) 1px; /* Changed white to match your main project border */
+    border-radius: 20px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+     /* Crucial: Keeps the glow inside the rounded corners */
+    background-color: #121212; /* Base color for the dark portfolio theme */
+}
+
+/* Create the glow layer using a pseudo-element */
+.block1::before, .block2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Creates a radial gradient tied to the JS variables --mouse-x and --mouse-y */
+    background: radial-gradient(150px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(16, 240, 27, 0.921),  transparent 50%);
+    z-index: 1; /* Sits above the background but below the image/link */
+    pointer-events: none; /* Allows clicks to pass right through to the link */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show the glow layer only on hover */
+.block1:hover::before, .block2:hover::before {
+    opacity: 1;
+}
+
+/* Ensure the link and image sit above the glow layer so they stay clickable */
+.block1 a, .block2 a {
+    position: relative;
+    z-index: 2; 
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.block1 img {
+    border-radius: 15px;
+    /* Math: 100% space minus the 5px margin on both sides (left+right / top+bottom) */
+    width: calc(100% - 20px);  
+    height: calc(100% - 20px);
+    object-fit: cover;
+    display: block;
+    margin: 10px; 
+}
+
+
+/* Make sure the clickable link fills the box area */
+.block2 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.block2 img {
+    border-radius: 15px;
+    /* Math: 100% space minus the 5px margin on both sides (left+right / top+bottom) */
+    width: calc(100% - 20px);  
+    height: calc(100% - 20px);
+    object-fit: cover;
+    display: block;
+    margin: 10px; 
+    
 }
